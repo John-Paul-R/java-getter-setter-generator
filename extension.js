@@ -1,28 +1,10 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
 const vscode = require('vscode');
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "java-getter-setter-generator" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
-	});
 	class varElements
 	{
 		constructor(numLines, useLines, varTypes, varNames, selection)
@@ -110,6 +92,7 @@ function activate(context) {
 		}
 		vscode.window.activeTextEditor.insertSnippet(new vscode.SnippetString(output), varElements.selection.end);
 	}
+
 	var disp_setters = vscode.commands.registerTextEditorCommand('generate.setters', function() {
 		genSetters(getVarElementsFromSelected());
 	});
@@ -131,7 +114,8 @@ function activate(context) {
 		}
 		vscode.window.activeTextEditor.insertSnippet(new vscode.SnippetString(output), varElements.selection.end);
 	}
-	let disp_var_get_set = vscode.commands.registerCommand('generate.vargetset', function () {
+
+	let disp_get_set = vscode.commands.registerCommand('generate.getset', function () {
 		//vscode.window.showInputBox();
 		let varElements = getVarElementsFromSelected();
 		genGetters(varElements);
@@ -140,11 +124,11 @@ function activate(context) {
 
 
 
-	context.subscriptions.push(disposable, disp_var_get_set, disp_getters, disp_setters);
+	context.subscriptions.push(disp_get_set, disp_getters, disp_setters);
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
+
 function deactivate() {}
 
 module.exports = {

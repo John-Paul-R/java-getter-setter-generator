@@ -10,8 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld",
-		"onCommand:generate.vargetset",
+		"onCommand:generate.getset",
 		"onCommand:generate.getters",
 		"onCommand:generate.setters"
 	],
@@ -19,12 +18,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			},
-			{
-				"command": "generate.vargetset",
-				"title" : "Generate Vars/Gets/Sets"
+				"command": "generate.getset",
+				"title" : "Generate Gets/Sets"
 			},
 			{
 				"command": "generate.getters",
