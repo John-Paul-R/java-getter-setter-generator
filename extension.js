@@ -74,7 +74,6 @@ function activate(context) {
 	});
 	function genGetters(varElements) {
 		var output ="\n\n";
-		var baseIndent = vscode.IndentAction.Indent
 		vscode.window.activeTextEditor.options.tabSize
 		for (var i = 0; i < varElements.numLines; i++)
 		{
@@ -98,7 +97,6 @@ function activate(context) {
 	});
 	function genSetters(varElements) {
 		var output ="\n\n";
-		var baseIndent = vscode.IndentAction.Indent
 		vscode.window.activeTextEditor.options.tabSize
 		for (var i = 0; i < varElements.numLines; i++)
 		{
